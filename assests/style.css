@@ -1,0 +1,27 @@
+
+html ,body ,h1 ,h2 ,h3 ,h4 ,h5 ,h6 ,p , a {
+    font-family:"robotolight", sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+header {
+    background-color: darkslateblue;
+    height: 100px;
+    text-align: center;
+}
+header a:link {
+    color: darkblue;
+    text-decoration: none;
+}
+header a:visited {
+    color: darkblue;
+    text-decoration: none;
+}
+#menu ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+}
+

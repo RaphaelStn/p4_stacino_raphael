@@ -1,13 +1,3 @@
-<!-- Récupération de la DB -->
-<?php
-try {
-	$bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch(Exception $e) {
-        die('Erreur : '.$e->getMessage());
-}
-?>
-<!-- Début de l'HTML -->
 <!DOCTYPE html>
 <html lang='fr'>
 <head>
@@ -26,13 +16,21 @@ catch(Exception $e) {
 <section id="blog">
 <!-- Récupération des billets -->
 <?php
+    try {
+	    $bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    }
+    catch(Exception $e) {
+        die('Erreur : '.$e->getMessage());
+    }
     $reponse = $bdd->query('SELECT * FROM billets');
-while ( $donnee = $reponse->fetch()) {
+    while ( $donnee = $reponse->fetch()) {
 ?>
 <div class="billets">
-    <h3 class="titre-billets"> <?php echo $donnee['titre'];?> </h3>
-    <p class="date-creation-billets"> <?php echo $donnee['date_creation'];?> </p>
-    <p class="contenu-billets"> <?php echo $donnee['contenu']; ?> </p>
+    <div class="billets-div">
+        <h3 class="titre-billets"> <?php echo $donnee['titre'];?> </h3>
+        <p class="date-creation-billets"> <?php echo $donnee['date_creation'];?> </p>
+        <p class="contenu-billets"> <?php echo substr($donnee['contenu'],0,200)?>  ... <a href=''> Lire plus</a></p>
+    </div> 
 <?php
 }
 $reponse->closeCursor();

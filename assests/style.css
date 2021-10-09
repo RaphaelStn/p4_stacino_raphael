@@ -24,4 +24,21 @@ header a:visited {
     justify-content: space-around;
     list-style-type: none;
 }
+#blog{
+    margin-top: 20px;
+}
+.billets {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.billets-div {
+    border-width: medium;
+    border: solid;
+    border-radius: 2px;
+}
+.contenu-billets {
+    text-align: justify;
+}
 

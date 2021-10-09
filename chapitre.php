@@ -1,12 +1,3 @@
-<?php
-try {
-	$bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch(Exception $e) {
-        die('Erreur : '.$e->getMessage());
-}
-?>
-<!-- Début de l'HTML -->
 <!DOCTYPE html>
 <html lang='fr'>
 <head>
@@ -21,19 +12,26 @@ catch(Exception $e) {
 <header>
     <?php include('./includes/header.php'); ?>
 </header>
-<!-- Section blog -->
+<!-- Section chapitres -->
 <section id="chapitres">
-<!-- Récupération des billets -->
+<!-- Récupération des chapitres -->
 <?php
+    try {
+	    $bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    }
+    catch(Exception $e) {
+        die('Erreur : '.$e->getMessage());
+    }
     $reponse = $bdd->query('SELECT * FROM billets');
-while ( $donnee = $reponse->fetch()) {
+    while ( $donnee = $reponse->fetch()) {
 ?>
-<div class="billets">
+<div class="chapitre">
     <a href=''> <h3 class="titre-billets"> <?php echo $donnee['titre'];?> </h3></a>
     <p class="date-creation-billets"> <?php echo $donnee['date_creation'];?> </p> 
+</div>
 <?php
-}
-$reponse->closeCursor();
+    }
+    $reponse->closeCursor();
 ?>
 </section>
 </body>

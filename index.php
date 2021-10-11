@@ -14,6 +14,11 @@
 </header>
 <!-- Section blog -->
 <section id="blog">
+    <h2> Bienvenue sur le blog de Jean Forteroche</h2> 
+    <p>
+        Vous pouvez retrouver ici les 3 derniers chapitres du nouveau livre de Jean Forteroche, 
+        ou vous pouvez naviguer dans le menu pour retrouver l'intégralité des chapitres
+    </p>
 <!-- Récupération des billets -->
 <?php
     try {
@@ -22,14 +27,14 @@
     catch(Exception $e) {
         die('Erreur : '.$e->getMessage());
     }
-    $reponse = $bdd->query('SELECT * FROM billets');
+    $reponse = $bdd->query('SELECT * FROM (SELECT * FROM billets ORDER BY id DESC LIMIT 3) lastNrows_subquery ORDER BY id');
     while ( $donnee = $reponse->fetch()) {
 ?>
 <div class="billets">
     <div class="billets-div">
         <h3 class="titre-billets"> <?php echo $donnee['titre'];?> </h3>
         <p class="date-creation-billets"> <?php echo $donnee['date_creation'];?> </p>
-        <p class="contenu-billets"> <?php echo substr($donnee['contenu'],0,200)?>  ... <a href=''> Lire plus</a></p>
+        <p class="contenu-billets"> <?php echo substr($donnee['contenu'],0,300)?>  ... <a href=''> Lire plus</a></p>
     </div> 
 <?php
 }

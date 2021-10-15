@@ -26,23 +26,12 @@ try {
 <section id="chapitres">
 <!-- Récupération des chapitres -->
 <?php
-    $reponse = $bdd->query('SELECT * FROM billets');
+    $reponse = $bdd->query('SELECT * FROM billets ORDER BY titre');
     while ( $donnee = $reponse->fetch()) {
 ?>
-<div>
-    <?php 
-        if(isset($_GET['id'])) { // On vérifie une ID dans l'URL A CHANGER POUR UNE REQUETE EN :id !!!
-            $id = ($_GET['id']);
-            $reponse = $bdd->prepare('SELECT * FROM billets WHERE id = ?');
-            $reponse->execute(array($_GET['id'] = "$id"));
-            while ( $donnee = $reponse->fetch()) {
-                echo '<h1>' . $donnee['titre'] . '</h1>';
-                echo  $donnee['contenu'];
-            }
-        }
-    ?>
-    </br>
-    <a href='./contents.php'> Retour à la séléction de chapitre</a>
+<div class="chapitre">
+        <a href='./chapitre.php?id=<?php echo $donnee['id'];?>'> <h3 class="titre-billets"> <?php echo $donnee['titre'];?> </h3></a>
+        <p class="date-creation-billets"> <?php echo $donnee['date_creation'];?> </p> 
 </div>
 <?php
     }

@@ -1,6 +1,5 @@
-<?php
+<?php // On récupère la dabatase en local host, avec erreur
 try {
-    // On récupère notre Database
 	$bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch(Exception $e) {
@@ -23,7 +22,7 @@ try {
     <?php include('./includes/header.php'); ?>
 </header>
 <!-- Section chapitres -->
-<section id="chapitres">
+<section>
 <!-- Récupération des chapitres -->
 <?php
     $reponse = $bdd->query('SELECT * FROM billets');
@@ -31,10 +30,9 @@ try {
 ?>
 <div>
     <?php 
-        if(isset($_GET['id'])) { // On vérifie une ID dans l'URL A CHANGER POUR UNE REQUETE EN :id !!!
-            $id = ($_GET['id']);
-            $reponse = $bdd->prepare('SELECT * FROM billets WHERE id = ?');
-            $reponse->execute(array($_GET['id'] = "$id"));
+        if(isset($_GET['id'])) { // On affiche le chapitre via l'URL et la méthode GET
+            $reponse = $bdd->prepare('SELECT * FROM billets WHERE id = :id');
+            $reponse->execute(array('id' => $_GET['id']));
             while ( $donnee = $reponse->fetch()) {
                 echo '<h1>' . $donnee['titre'] . '</h1>';
                 echo  $donnee['contenu'];

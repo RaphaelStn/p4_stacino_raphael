@@ -1,6 +1,5 @@
-<?php
-try {
-    // On récupère notre Database
+<?php // On récupère la dabatase en local host, avec erreur
+try { 
 	$bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch(Exception $e) {
@@ -22,10 +21,10 @@ try {
 <header>
     <?php include('./includes/header.php'); ?>
 </header>
-<section id="admin">    
-<?php
+<section>    
+<?php // A AJOUTER ICI, un local storage pour l'actualistation et les retours en arrières
     // if (isset($_POST['mot_de_passe']) AND isset($_POST['identifiant']) AND $_POST['mot_de_passe'] =='admin' AND $_POST['identifiant'] == 'admin') { A CHANGER
-    if ($_POST['mot_de_passe'] == '' AND $_POST['identifiant'] == '') { // TEMPORAIRE A MODIFIER
+    if ($_POST['mot_de_passe'] == '' AND $_POST['identifiant'] == '') { // TEMPORAIRE A MODIFIER pour les biens des tests
 ?>
     <h1>Page Administrateur</h1>
     <p>
@@ -39,7 +38,7 @@ try {
     ?>
     <div>
         <a href='./add.php?id=<?php echo $donnee['id'];?>'> <h3 class="titre-billets"> <?php echo $donnee['titre'];?> </h3></a>
-        <p class="date-creation-billets"> <?php echo $donnee['date_creation'];?> </p> 
+        <p> <?php echo $donnee['date_creation'];?> </p> 
     </div>
     <?php
         }

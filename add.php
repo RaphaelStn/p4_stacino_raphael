@@ -65,15 +65,14 @@ try {
             }
         ?>'/>
         <input type="submit" name="submit" value="Enregistrer"/>
-        <input type="submit" name="delete" class="deleteBtn" style="visibility:hidden;" value="Supprimer le billet"/>
+        <input type="submit" name="delete" class="deleteBtn" style="visibility:hidden;" value="Supprimer le billet" onclick="return confirm('Êtes-vous sur de vouloir supprimer le billet?')"/>
         
         <script> // Un petit script pour cacher le button supprimer si aucune ID dans l'URL, donc nouveau billet.
-        let deleteBtn = document.querySelector(".deleteBtn");
-        let idBillet = document.querySelector(".idBillet").value;
-        console.log(idBillet)
-        if(idBillet != 'null') {
-            deleteBtn.style.visibility ="visible";
-        }
+            let deleteBtn = document.querySelector(".deleteBtn");
+            let idBillet = document.querySelector(".idBillet").value;
+            if(idBillet != 'null') {
+                deleteBtn.style.visibility ="visible";
+            }
         </script>
         <?php
         if (isset($_POST['submit']) AND !empty($_POST['titre']) AND !empty($_POST['contenu'])) { // On vérifie les valeurs recu via POST

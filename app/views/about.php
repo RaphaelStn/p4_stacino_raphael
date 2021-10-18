@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang='fr'>
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="Blog de Jean Forteroche, auteur et écrivain.">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
-    <title>Blog de Jean Forteroche</title>
-    <link href="./assests/style.css" rel="stylesheet">
-</head>
-<body>
-<!-- Header -->
-<header>
-    <?php include('./includes/header.php'); ?>
-</header>
-<!-- Section about -->
-<section id="about">
-    <h1> A propos de Jean Forteroche</h1>
+<h1> A propos de Jean Forteroche</h1>
     <p>
         Fusce massa quam, elementum sit amet cursus dictum, tempus vel purus. Suspendisse a dui nunc. Vestibulum eget sodales mauris. 
         Nulla pulvinar nunc ac pulvinar placerat. Phasellus nec orci dui. Sed ullamcorper tincidunt ligula, eget rutrum purus vestibulum sit amet. 
@@ -27,6 +11,3 @@
         sed fringilla neque ultricies vel. Aliquam varius leo ut odio euismod gravida. Phasellus pellentesque laoreet dui vitae bibendum. Donec tincidunt nisi 
         sit amet nisi tempus placerat. Phasellus in nisl tellus.
     </p>
-</section>
-</body>
-</html>

@@ -32,13 +32,9 @@ header a:visited {
     justify-content: space-around;
 }
 .extrait-div {
+    border : 5px;
+    padding: 5px;
     border-width: medium;
     border: solid;
     border-radius: 10px;
-    margin: 5px;
-    padding: 5px;
 }
-.contenu-billets {
-    text-align: justify;
-}
-

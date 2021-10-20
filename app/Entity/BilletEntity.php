@@ -13,3 +13,4 @@ class BilletEntity extends Entity{
         return $html;
     }
 }
+?>

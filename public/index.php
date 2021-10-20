@@ -1,9 +1,9 @@
 <?php
-define('ROOT', dirname(__DIR__));
+define('ROOT', dirname(__DIR__)); // On définit une variable ROOT pour naviguer dans les dossiers plus facilement.
 require  ROOT . '/app/App.php';
-App::load();
+App::load(); // Load() Initialise la session et les AutoLoaders des namespaces CORE et APP.
 
-
+// On utilise ensuite le GET action pour récuperer le view à afficher, selon un modèle défault.
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
 }

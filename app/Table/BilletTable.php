@@ -3,7 +3,7 @@ namespace App\Table;
 use \Core\Table\Table;
 use \App;
 
-class BilletTable extends Table {
+class BilletTable extends Table { // Effectue la query défini dans la classe parente Table
     public function getThreeLast() {
         return $this -> query('SELECT * FROM (SELECT * FROM billets ORDER BY titre DESC LIMIT 3) lastNrows_subquery ORDER BY titre');
     }

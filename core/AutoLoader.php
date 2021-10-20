@@ -1,7 +1,7 @@
 <?php
 namespace Core;
 
-class AutoLoader {
+class AutoLoader { //Autoloader qui permet de charger les classes plus facilement
 
     public static function register() {
         spl_autoload_register(array(__CLASS__,'autoload'));

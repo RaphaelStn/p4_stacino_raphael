@@ -30,8 +30,8 @@
     </div>    
 </nav>
 </header>
-<section>
-    <?php echo $content; ?>
-</section>
+
+<?php echo $content; ?>
+
 </body>
 </html>

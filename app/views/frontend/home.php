@@ -15,7 +15,6 @@ $app->setTitle("Accueil");
         ?>
         <div class="extrait-div">
             <h3> <?php echo $billet -> titre;?> </h3>
-            <p> <?php echo $billet -> date_creation;?> </p>
             <p> <?php echo $billet -> extrait; ?> </p>
         </div>
         <?php endforeach; ?>

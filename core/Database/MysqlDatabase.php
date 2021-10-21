@@ -65,4 +65,7 @@ class MysqlDatabase extends Database { // Recupération des datas selon les info
         }
         return $datas;
     }
+    public function lastInsertId(){
+        return $this -> getPDO() -> lastInsertId();
+    }
 }

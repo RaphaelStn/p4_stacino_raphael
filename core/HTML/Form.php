@@ -16,9 +16,12 @@ class Form{
         return $this->surround('<input type="text" name="' . $name . '"placeholder="'. $placeholder .'" value="'. $value .'">');
     }
     public function submit($name, $html) {
-        return $this->surround('<button name="'. $name .'"type="submit">'. $html .'</button>');
+        return $this->surround('<button class="btn btn-primary" name="'. $name .'"type="submit">'. $html .'</button>');
     }
     public function password($name, $placeholder = null){
         return $this->surround('<input type="password" name="' . $name . '"placeholder="'. $placeholder .'">');
+    }
+    public function textarea($name) {
+        return $this->surround('<textarea type="textarea" name="'. $name .'"></textarea>');
     }
 }

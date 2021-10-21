@@ -1,5 +1,4 @@
 <?php
-use Core\HTML\Form;
 use Core\Auth\DBAuth;
 
 $app = App::getInstance();
@@ -16,13 +15,12 @@ if(!empty($_POST) AND isset($_POST['connect'])){
         <?php
     }
 }
-$form = new Form($_POST);
 ?>
 
 <section id="login" class="main">
 <form method="post">
-    <?php echo $form->input('username', "Nom d'utilisateur");?>
-    <?php echo $form->password('password', "Mot de passe");?>
-    <?php echo $form-> submit('connect', 'Se Connecter');?>
+    <p><input type="text" name="username" placeholder="Nom d'utilisateur"/></p>
+    <p><input  type="password" name="password" placeholder="Mot de passe"/></p>
+    <p><button class="btn btn-primary" type="submit" name="connect">Se connecter</button></p>
 </form>
 </section>

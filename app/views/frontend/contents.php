@@ -10,8 +10,8 @@ $app->setTitle('Chapitres');
     foreach($app->getTable('Billet')->all() as $billet): 
 ?>
 
-<h3> <a href ="<?php echo $billet->url; ?>"><?php echo $billet-> titre;?> </a></h3>
-<p> <?php echo $billet-> date_creation;?> </p>
+<p><a class="contents" href ="<?php echo $billet->url; ?>"><?php echo $billet-> titre;?> </a></p>
+<p><?php echo $billet->extrait;?></p>
 
 <?php endforeach; ?> 
 

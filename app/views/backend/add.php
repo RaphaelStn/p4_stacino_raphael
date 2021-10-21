@@ -1,5 +1,4 @@
 <?php 
-use Core\HTML\Form;
 
 $app::getInstance();
 $app-> setTitle('Ajout');
@@ -7,18 +6,15 @@ $app-> setTitle('Ajout');
 if(!empty($_POST AND isset($_POST['create']))) {
     $result = $app->getTable('billet')->create(['titre' => $_POST['titre'], 'contenu' => $_POST['contenu']]);
     if($result) {
-        ?> 
-        <div class="success"> Le chapitre à été crée. </div>
-        <?php
+        header('Location: admin.php?');
     }
 }
-$form = new Form($_POST);
 ?>
 
 <section id="id" class="main">
 <p> Vous pouvez ici ajouter un nouveau chapitre</p>
 <form method="post">
-<?php echo $form->input('titre', null, null);?>
+<input type="text" name="titre"/>
 <textarea name='contenu'>
 </textarea>
 <script>
@@ -32,6 +28,6 @@ $form = new Form($_POST);
       height:'450px'
    });
 </script>
-<?php echo $form->submit('create','Ajouter');?>
-<a href="..\public\admin.php"> Retour au menu admin</a>
+<button class="btn btn-primary" type="submit" name="create">Ajouter le chapitre</button>
+<a class="btn btn-success" href="..\public\admin.php"> Retour au menu admin</a>
 </section>

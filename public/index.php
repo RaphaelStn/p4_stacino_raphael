@@ -29,6 +29,7 @@ switch ($action) {
         require ROOT . '/app/views/backend/login.php';
         break;
 
+
 }
 $content = ob_get_clean();
 require ROOT . '/app/views/templates/default.php';

@@ -35,7 +35,10 @@ switch ($action) {
         require ROOT . '/app/views/backend/edit.php';
         break;
     case 'add' : 
-        require ROOT. '/app/views/backend/add.php';
+        require ROOT . '/app/views/backend/add.php';
+        break;
+    case 'delete': 
+        require ROOT . '/app/views/backend/delete.php';
         break;
 }
 $content = ob_get_clean();

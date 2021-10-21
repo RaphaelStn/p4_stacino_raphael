@@ -1,25 +1,23 @@
 <?php 
-use Core\HTML\Form;
 
 $app::getInstance();
 $app-> setTitle('Edition');
-if(!empty($_POST AND isset($_POST['update']))) {
+if(!empty($_POST) AND isset($_POST['update'])) {
     $result = $app->getTable('billet')->update($_GET['id'], [ 'titre' => $_POST['titre'], 'contenu' => $_POST['contenu']]);
     if($result) {
         ?> 
-        <div class="success"> Le chapitre à été mis à jour. </div>
+        <div class="btn btn-success"> Le chapitre à été mis à jour. </div>
         <?php
     }
 }
 $billet = $app -> getTable('billet')->find($_GET['id']);
-$form = new Form($_POST);
 
 ?>
 
 <section id="id" class="main">
 <p> Vous pouvez ici éditer votre chapitre </p>
 <form method="post">
-<?php echo $form->input('titre', null,  $billet->titre);?>
+<input type="text" name="titre" value="<?php echo $billet->titre;?>"/>
 <textarea name='contenu'>
     <?php echo $billet->contenu;?>
 </textarea>
@@ -34,6 +32,32 @@ $form = new Form($_POST);
       height:'450px'
    });
 </script>
-<?php echo $form->submit('update','Mettre à jour');?>
-<a href="..\public\admin.php"> Retour au menu admin</a>
+<button class="btn btn-primary" type="submit" name="update">Mettre à jour</button>
+<a class="btn btn-success" href="..\public\admin.php"> Retour au menu admin</a>
+
+
+<!-- administration des commentaires -->
+<?php
+if(!empty($_POST) AND isset($_POST['deleteComm'])) {
+    $result = $app->getTable('Comm')->delete($_POST['comm_id']);
+    if($result) {
+    }
+}
+?>
+<table class="table">
+    <tbody>
+        <?php foreach($app->getTable('Comm')->all() as $comm): ?>
+        <tr> 
+            <td><?php echo $comm -> pseudo;?></td>
+            <td><?php echo $comm -> contenu;?></td>
+            <td>                
+                <form action="" method="post" style="display: inline;">
+                    <input type="hidden" name="comm_id" value="<?php echo $comm->comm_id;?>">
+                    <button class="btn btn-danger" type="submit" name="deleteComm">Supprimer</button>
+                </form>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 </section>

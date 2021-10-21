@@ -2,10 +2,10 @@
 
 $app = App::getInstance();
 $billet = $app->getTable('billet')->find($_GET['id']);
-$app->setTitle($billet->titre);
 if($billet === false) {
     $app->notFound();
 }
+$app->setTitle($billet->titre);
 if(!empty($_POST) AND isset($_POST['post_com'])) {
     $result = $app->getTable('Comm')->create(['pseudo' => $_POST['pseudo'], 'contenu' => $_POST['commentaire'], 'id_billet' => $_GET['id']]);
 }

@@ -4,8 +4,7 @@ use \Core\Table\Table;
 
 class CommTable extends Table { // Effectue la query défini dans la classe parente Table
     public function all() {
-        return $this -> query("SELECT billets.id, comms.pseudo, comms.contenu as contenu, comms.id as comm_id
-                                FROM billets LEFT JOIN comms ON id_billet = billets.id WHERE billets.id=?", [$_GET['id']]);
+        return $this -> query("SELECT billets.id, comms.pseudo, comms.contenu as contenu, comms.id as comm_id FROM billets LEFT JOIN comms ON id_billet = billets.id WHERE billets.id=?", [$_GET['id']]);
     }
     public function create($fields) {
         $sql_parts = [];
@@ -19,6 +18,15 @@ class CommTable extends Table { // Effectue la query défini dans la classe pare
     }
     public function delete($id) {
         return $this->query("DELETE FROM comms WHERE comms.id=?", [$id], true);
+    }
+    public function report($id) {
+        return $this->query("UPDATE comms  SET reported = '1' WHERE comms.id=?",[$id], true);
+    }
+    public function getReported() {
+        return $this -> query("SELECT comms.pseudo, comms.contenu as contenu, comms.id as comm_id, billets.titre as titre FROM billets LEFT JOIN comms ON id_billet = billets.id WHERE reported = '1'");
+    }
+    public function removeReport($id){
+        return $this->query("UPDATE comms  SET reported = '0' WHERE comms.id=?",[$id], true);
     }
 }
 ?>

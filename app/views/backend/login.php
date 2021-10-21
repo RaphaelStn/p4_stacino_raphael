@@ -10,7 +10,7 @@ if(!empty($_POST) AND isset($_POST['connect'])){
     } else {
         ?>
         <div class='error'>
-            <p>Identifiant ou mot de passe incorrect.</p>
+            <p class="btn btn-danger">Identifiant ou mot de passe incorrect.</p>
         <div>
         <?php
     }

@@ -44,4 +44,58 @@ if(isset($_POST['disconnect'])){
     <a class="btn btn-success" href="../public/admin.php?action=add">Ajouter un chapitre</a>
     <button class="btn btn-secondary nav-admin" type="submit" name="disconnect">Se déconnecter</button>
 </form>
+<p> Ces commentaires ont été signalé par les utilisateurs, validez pour confirmer le commentaire, sinon supprimez-le.</p>
+<?php
+$reports = $app->getTable('comm')->getReported();
+if(!empty($_POST) AND isset($_POST['refuser'])) { // Suppression du commentaire
+    $result = $app->getTable('Comm')->delete($_POST['comm_id']);
+    if($result) {
+        ?>
+        <div class="btn btn-success">
+            Le commentaire à été Supprimé ! 
+        </div>
+    <?php
+    }
+}
+if(!empty($_POST) AND isset($_POST['valider'])) { // validation du commentaire
+    $result = $app->getTable('Comm')->removeReport($_POST['comm_id']);
+    if($result) {
+        ?>
+        <div class="btn btn-success">
+            Le commentaire à été validé ! 
+        </div>
+    <?php
+    }
+}
+$reports = $app->getTable('comm')->getReported();
+?>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Chapitre</td>
+            <td>Pseudo</td>
+            <td>Contenu</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($reports as $report): ?>
+        <tr>
+            <td><?php echo $report->titre;?></td>
+            <td><?php echo $report->pseudo;?></td>
+            <td><?php echo $report->contenu;?></td>
+            <td>
+                <form action="" method="post" style="display: inline;">
+                    <input type="hidden" name="comm_id" value="<?php echo $report->comm_id;?>">
+                    <button class="btn btn-success" type="submit" name="valider">Valider</button>
+                </form>
+                <form action="" method="post" style="display: inline;">
+                    <input type="hidden" name="comm_id" value="<?php echo $report->comm_id;?>">
+                    <button class="btn btn-danger" type="submit" name="refuser">Supprimer</button>
+                </form>
+            </td>
+        </tr>
+        <?php endforeach;?>
+    </tody>
+</table>
 </section>

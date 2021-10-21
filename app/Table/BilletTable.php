@@ -13,5 +13,27 @@ class BilletTable extends Table { // Effectue la query défini dans la classe pa
     public function all() {
         return $this -> query("SELECT * FROM billets ORDER BY titre");
     }
+    public function update($id, $fields) {
+        $sql_parts = [];
+        $attributes = [];
+        foreach($fields as $k => $v) {
+            $sql_parts[] = "$k=?";
+            $attributes[] = $v;
+        }
+        $sql_part = implode(',',$sql_parts);
+        $attributes[] = $id;
+        return $this->query("UPDATE billets SET $sql_part WHERE id=?", $attributes, true);
+    }
+    public function create($fields) {
+        $sql_parts = [];
+        $attributes = [];
+        foreach($fields as $k => $v) {
+            $sql_parts[] = "$k=?";
+            $attributes[] = $v;
+        }
+        $sql_part = implode(',',$sql_parts);
+        return $this->query("INSERT INTO billets (date_creation, titre, contenu) VALUES (NOW(),$sql_part)", $attributes, true);
+    }
+   
 }
 ?>

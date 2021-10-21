@@ -42,6 +42,10 @@ class App {
     }
     public  function NotFound() { // 404 not found.
         header ("HTTP/1.0 404 Not Found");
-        header('Location:index.php?action=404');
+        die('page introuvable');
+    }
+    public function forbidden() {
+        header ("HTTP/1.0 403 Forbidden");
+        die('acces interdit');
     }
 }

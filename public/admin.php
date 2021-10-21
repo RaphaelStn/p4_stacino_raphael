@@ -1,7 +1,9 @@
 <?php
+use Core\Auth\DbAuth;
 define('ROOT', dirname(__DIR__)); // On définit une variable ROOT pour naviguer dans les dossiers plus facilement.
 require  ROOT . '/app/App.php';
 App::load(); // Load() Initialise la session et les AutoLoaders des namespaces CORE et APP.
+$app = App::getInstance();
 
 // On utilise ensuite le GET action pour récuperer le view à afficher, selon un modèle défault.
 if(isset($_GET['action'])) {
@@ -10,25 +12,31 @@ if(isset($_GET['action'])) {
 else {
     $action = 'home';
 }
+$auth = new DBAuth($app->getDb());
+if(!$auth->logged()) {
+    $app->forbidden();
+}
 
 ob_start();
 switch ($action) {
     case 'home' : 
-        require ROOT . '/app/views/frontend/home.php';
+        require ROOT . '/app/views/backend/home.php';
         break;
     case 'contents' : 
-        require ROOT . '/app/views/frontend/contents.php';
+        require ROOT . '/app/views/backend/contents.php';
         break;
     case 'about' : 
-        require ROOT . '/app/views/frontend/about.php';
+        require ROOT . '/app/views/backend/about.php';
         break;
     case 'chapitre' : 
-        require ROOT . '/app/views/frontend/chapitre.php';
+        require ROOT . '/app/views/backend/chapitre.php';
         break;
-    case 'login' : 
-        require ROOT . '/app/views/backend/login.php';
+    case 'edit' : 
+        require ROOT . '/app/views/backend/edit.php';
         break;
-
+    case 'add' : 
+        require ROOT. '/app/views/backend/add.php';
+        break;
 }
 $content = ob_get_clean();
 require ROOT . '/app/views/templates/default.php';

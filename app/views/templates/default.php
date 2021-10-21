@@ -24,7 +24,7 @@
                 <a href="..\public\index.php?action=about">A propos</a>
             </li>
             <li>
-                <a href="..\public\index.php?action=home"> Se connecter </a>
+                <a href="..\public\index.php?action=login"> Se connecter </a>
             </li>
         </ul>
     </div>    

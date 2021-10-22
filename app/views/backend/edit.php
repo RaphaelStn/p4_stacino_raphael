@@ -1,19 +1,3 @@
-<?php 
-
-$app::getInstance();
-$app-> setTitle('Edition');
-if(!empty($_POST) AND isset($_POST['update'])) {
-    $result = $app->getTable('billet')->update($_GET['id'], [ 'titre' => $_POST['titre'], 'contenu' => $_POST['contenu']]);
-    if($result) {
-        ?> 
-        <div class="btn btn-success"> Le chapitre à été mis à jour. </div>
-        <?php
-    }
-}
-$billet = $app -> getTable('billet')->find($_GET['id']);
-
-?>
-
 <section id="id" class="main">
 <p> Vous pouvez ici éditer votre chapitre </p>
 <form method="post">
@@ -35,18 +19,9 @@ $billet = $app -> getTable('billet')->find($_GET['id']);
 <button class="btn btn-primary" type="submit" name="update">Mettre à jour</button>
 <a class="btn btn-success" href="..\public\admin.php"> Retour au menu admin</a>
 
-
-<!-- administration des commentaires -->
-<?php
-if(!empty($_POST) AND isset($_POST['deleteComm'])) {
-    $result = $app->getTable('Comm')->delete($_POST['comm_id']);
-    if($result) {
-    }
-}
-?>
 <table class="table">
     <tbody>
-        <?php foreach($app->getTable('Comm')->all() as $comm): ?>
+        <?php foreach($comms as $comm): ?>
         <tr> 
             <td><?php echo $comm -> pseudo;?></td>
             <td><?php echo $comm -> contenu;?></td>

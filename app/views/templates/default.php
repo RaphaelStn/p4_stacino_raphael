@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="description" content="Blog de Jean Forteroche, auteur et écrivain.">
-    <title> <?php echo App::getInstance()->getTitle(); ?> </title>
+    <title> <?php echo Core\Controller\Controller::getTitle(); ?> </title>
     <link href="..\public\css\style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/nac1xck.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -31,11 +31,11 @@
       <li class="nav-item">
         <a class="nav-link nav-admin";" href="
         <?php
-        $auth = new Core\Auth\DBAuth($app->getDb());
+        $auth = new Core\Auth\DBAuth(App::getInstance()->getDb());
         if(!$auth->logged()) {
          echo '../public/index.php?action=login';
         } else {
-        echo '../public/admin.php?action=home';
+        echo '../public/index.php?action=admin';
         }?>"><i class="far fa-user"></i> Interface d'administration</a>
       </li>
     </ul>

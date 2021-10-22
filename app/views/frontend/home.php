@@ -1,8 +1,3 @@
-<?php // On init l'instance unique App via function static et singleton, stocké dans $app. $app nous permet d'appeler les différentes tables selon leur nom (billet, comm).
-$app = App::getInstance();
-$app->setTitle("Accueil");
-?>
-
 <section id="accueil" class="main">
     <h1> Bienvenue sur le blog de Jean Forteroche</h1> 
     <p>
@@ -11,7 +6,7 @@ $app->setTitle("Accueil");
     </p>
     <div class="homepage">  
         <?php 
-        foreach($app->getTable('Billet')->getThreeLast() as $billet):
+        foreach($billets as $billet):
         ?>
         <div class="extrait-div">
             <h3> <?php echo $billet -> titre;?> </h3>

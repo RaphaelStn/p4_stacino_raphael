@@ -1,4 +1,6 @@
 <?php
+use App\Controller\FrontendController;
+use App\Controller\Admin\BackendController;
 define('ROOT', dirname(__DIR__)); // On définit une variable ROOT pour naviguer dans les dossiers plus facilement.
 require  ROOT . '/app/App.php';
 App::load(); // Load() Initialise la session et les AutoLoaders des namespaces CORE et APP.
@@ -11,25 +13,41 @@ else {
     $action = 'home';
 }
 
-ob_start();
 switch ($action) {
     case 'home' : 
-        require ROOT . '/app/views/frontend/home.php';
+        $controller = new FrontendController();
+        $controller->home();
         break;
     case 'contents' : 
-        require ROOT . '/app/views/frontend/contents.php';
+        $controller = new FrontendController();
+        $controller->contents();
         break;
     case 'about' : 
-        require ROOT . '/app/views/frontend/about.php';
+        $controller = new FrontendController();
+        $controller->about();
         break;
     case 'chapitre' : 
-        require ROOT . '/app/views/frontend/chapitre.php';
+        $controller = new FrontendController();
+        $controller->chapitre();
         break;
     case 'login' : 
-        require ROOT . '/app/views/backend/login.php';
+        $controller = new FrontendController();
+        $controller->login();
         break;
-
-
+    case 'admin' : 
+        $controller = new BackendController();
+        $controller->admin();
+        break;
+    case 'edit' : 
+        $controller = new BackendController();
+        $controller->edit();
+        break;
+    case 'add' : 
+        $controller = new BackendController();
+        $controller->add();
+        break;
+    case 'delete': 
+        $controller = new BackendController();
+        $controller->delete();
+        break;   
 }
-$content = ob_get_clean();
-require ROOT . '/app/views/templates/default.php';

@@ -1,9 +1,8 @@
 <?php
 namespace Core\Database;
 use \PDO;
-use Core\Database\Database;
 
-class MysqlDatabase extends Database { // Recupération des datas selon les infos constructeurs (ici config), et renvoie $data, fin du chemin.
+class MysqlDatabase { // Recupération des datas selon les infos constructeurs (ici config), et renvoie $data, fin du chemin.
 
     private $db_name;
     private $db_user;

@@ -1,16 +1,3 @@
-<?php 
-
-$app::getInstance();
-$app-> setTitle('Ajout');
-
-if(!empty($_POST AND isset($_POST['create']))) {
-    $result = $app->getTable('billet')->create(['titre' => $_POST['titre'], 'contenu' => $_POST['contenu']]);
-    if($result) {
-        header('Location: admin.php?');
-    }
-}
-?>
-
 <section id="id" class="main">
 <p> Vous pouvez ici ajouter un nouveau chapitre</p>
 <form method="post">
@@ -29,5 +16,12 @@ if(!empty($_POST AND isset($_POST['create']))) {
    });
 </script>
 <button class="btn btn-primary" type="submit" name="create">Ajouter le chapitre</button>
-<a class="btn btn-success" href="..\public\admin.php"> Retour au menu admin</a>
+<a class="btn btn-success" href="..\public\index.php?action=admin"> Retour au menu admin</a>
+<?php
+if($success_add) {
+    ?>
+    <div class="btn btn-success">Le chapitre à été ajouté</div>
+    <?php
+}
+?>
 </section>

@@ -1,19 +1,10 @@
 <?php
-use Core\Auth\DBAuth;
-
-$app = App::getInstance();
-$app-> setTitle('Connexion');
-if(!empty($_POST) AND isset($_POST['connect'])){
-    $auth = new DBAuth($app->getdb());
-    if($auth -> login($_POST['username'], $_POST['password'])) {
-        header('Location: admin.php');
-    } else {
-        ?>
+if($errors) {
+    ?>
         <div class='error'>
             <p class="btn btn-danger">Identifiant ou mot de passe incorrect.</p>
         <div>
-        <?php
-    }
+    <?php 
 }
 ?>
 

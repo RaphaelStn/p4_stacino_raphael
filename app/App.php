@@ -5,7 +5,6 @@ use Core\Config;
 class App {
     
     private static $_instance;
-    public $title = 'J. Forteroche';
     private $db_instance;
 
     public static function load(){ // load les Autoloader et le sessionstart().
@@ -34,18 +33,5 @@ class App {
             return $this -> db_instance;
         }
     }
-    public function getTitle() { // getter pour le titre.
-        return $this -> title;
-    }
-    public function setTitle($title) { // setter pour le titre.
-        return  $this -> title = $title . ' | ' . $this -> title;
-    }
-    public  function NotFound() { // 404 not found.
-        header ("HTTP/1.0 404 Not Found");
-        die('page introuvable');
-    }
-    public function forbidden() {
-        header ("HTTP/1.0 403 Forbidden");
-        die('acces interdit');
-    }
+    
 }

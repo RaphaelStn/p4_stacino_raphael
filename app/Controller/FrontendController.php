@@ -37,7 +37,7 @@ Class FrontendController extends AppController {
         $comms = $this -> comm-> all();
         // SIGNALEMENT du commentaire
         if(!empty($_POST) AND isset($_POST['report_comm'])) {
-            $result = $this->comm->report($_POST['comm_id']);
+            $result = $this->comm->report([$_POST['comm_id']]);
             if($result) {
                 $success_report=true;
             }

@@ -34,7 +34,7 @@
 <?php
 if($success_validate) {
     ?>
-    <div class="btn btn-success">Le commentaire à été sauvegardé<</div>
+    <div class="btn btn-success">Le commentaire à été sauvegardé</div>
     <?php
 }
 if($success_delete) {
@@ -55,7 +55,7 @@ if($success_delete) {
     <tbody>
         <?php foreach ($reports as $report): ?>
         <tr>
-            <td><?php echo $report->titre;?></td>
+            <td><?php echo $report->comm_id;?></td>
             <td><?php echo $report->pseudo;?></td>
             <td><?php echo $report->contenu;?></td>
             <td>

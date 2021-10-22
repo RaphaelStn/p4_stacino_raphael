@@ -28,8 +28,9 @@ if($success_report) {
             <td><?php echo $comm -> contenu;?></td>
             <td>
                 <form method="post" style="display: inline;">
-                    <input type="hidden" name="comm_id" value="<?php echo $comm->comm_id;?>">
+                    <input type="hidden" name="comm_id" value="<?php echo $comm -> comm_id;?>">
                     <button class="btn btn-warning"  type="submit" name="report_comm"><i class="fas fa-exclamation"></i></button>
+                </form>
             </td>
         </tr>
         <?php endforeach; ?>

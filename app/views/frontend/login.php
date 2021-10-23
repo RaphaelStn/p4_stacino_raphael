@@ -1,3 +1,4 @@
+<section id="login" class="main">
 <?php
 if($errors) {
     ?>
@@ -7,8 +8,6 @@ if($errors) {
     <?php 
 }
 ?>
-
-<section id="login" class="main">
 <form method="post">
     <p><input type="text" name="username" placeholder="Nom d'utilisateur"/></p>
     <p><input  type="password" name="password" placeholder="Mot de passe"/></p>

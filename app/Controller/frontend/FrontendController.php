@@ -1,6 +1,6 @@
 <?php 
-namespace App\Controller;
-use App\Controller\AppController;
+namespace App\Controller\Frontend;
+use App\Controller\Frontend\AppController;
 use Core\Auth\DBAuth;
 
 Class FrontendController extends AppController {
@@ -32,7 +32,7 @@ Class FrontendController extends AppController {
             }
          // POST du commentaire
         if(!empty($_POST) AND isset($_POST['post_comm'])) { 
-            $result = $this->comm->create(['pseudo' => $_POST['pseudo'], 'contenu' => $_POST['commentaire'], 'id_billet' => $_GET['id']]);
+            $result = $this->comm->create(['pseudo' => htmlspecialchars($_POST['pseudo']), 'contenu' => htmlspecialchars($_POST['commentaire']), 'id_billet' => htmlspecialchars($_GET['id'])]);
         }
         $comms = $this -> comm-> all();
         // SIGNALEMENT du commentaire
@@ -44,11 +44,13 @@ Class FrontendController extends AppController {
         }
         $this-> render('frontend/chapitre', compact('billet', 'comms','success_report'));
     }
+    
     public function about() {
         $billets = $this->billet->getThreeLast();
         $this->setTitle("A propos");
         $this-> render('frontend/about', compact('billets'));
     }
+
     public function login() {
         $errors=false;
         $this-> setTitle('Connexion');

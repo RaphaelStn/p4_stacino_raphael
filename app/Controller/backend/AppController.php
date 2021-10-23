@@ -1,8 +1,9 @@
 <?php 
-namespace App\Controller\Admin;
+namespace App\Controller\Backend;
 Use \Core\Auth\DbAuth;
 
-class AppController extends \App\Controller\AppController {
+class AppController extends \App\Controller\Frontend\AppController {
+    
     public function __construct(){
         parent::__construct();
         $auth = new DBAuth(\App::getInstance()->getDb());

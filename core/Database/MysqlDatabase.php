@@ -25,6 +25,7 @@ class MysqlDatabase { // Recupération des datas selon les infos constructeurs (
         }
         return $this -> pdo;
     }
+
     public function query($statement, $class_name=null, $one=false) {
         $req = $this -> getPDO() -> query($statement);
         if(strpos($statement, 'UPDATE') === 0 || strpos($statement, 'INSERT') === 0 || strpos($statement, 'DELETE') === 0) { 
@@ -44,6 +45,7 @@ class MysqlDatabase { // Recupération des datas selon les infos constructeurs (
         }
         return $datas;
     }
+
     public function prepare($statement, $attributes, $class_name=null, $one=false) {
         $req = $this-> getPDO()->prepare($statement);
         $result = $req-> execute($attributes);
@@ -64,6 +66,7 @@ class MysqlDatabase { // Recupération des datas selon les infos constructeurs (
         }
         return $datas;
     }
+    
     public function lastInsertId(){
         return $this -> getPDO() -> lastInsertId();
     }

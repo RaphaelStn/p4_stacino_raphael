@@ -1,7 +1,7 @@
 <?php
 namespace Core\Auth;
-
 use \Core\Database\MysqlDatabase;
+
 class DBAuth {
 
     private $db; 

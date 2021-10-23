@@ -1,7 +1,9 @@
 <?php 
-namespace App\Controller\Admin;
-use App\Controller\Admin\AppController;
+namespace App\Controller\Backend;
+use App\Controller\Backend\AppController;
+
 class BackendController extends AppController {
+    
     public function __construct() {
         parent::__construct();
         $this->loadModel('billet');
@@ -40,7 +42,7 @@ class BackendController extends AppController {
         $this->setTitle('Edition');
         //Logique du bouton edition
         if(!empty($_POST) AND isset($_POST['update'])) {
-            $result = $this->billet->update($_GET['id'], [ 'titre' => $_POST['titre'], 'contenu' => $_POST['contenu']]);
+            $result = $this->billet->update($_GET['id'], [ 'titre' => htmlspecialchars($_POST['titre']), 'contenu' => $_POST['contenu']]);
             if($result) {
                 $success_update=true;
             }
@@ -68,7 +70,7 @@ class BackendController extends AppController {
         $success_add=false;
         $this->setTitle('Ajout');
         if(!empty($_POST AND isset($_POST['create']))) {
-            $result = $this->billet->create(['titre' => $_POST['titre'], 'contenu' => $_POST['contenu']]);
+            $result = $this->billet->create(['titre' => htmlspecialchars($_POST['titre']), 'contenu' => $_POST['contenu']]);
             if($result) {
                 $success_add=true;
             }

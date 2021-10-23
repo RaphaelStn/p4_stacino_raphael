@@ -8,7 +8,6 @@ class Table {
 
     public function __construct(MysqlDatabase $db) {
         $this -> db = $db;
-
         if ($this -> table === null) {
             $part = explode('\\', get_class($this));
             $class_name = end($part);

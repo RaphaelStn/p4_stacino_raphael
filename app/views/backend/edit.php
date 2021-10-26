@@ -18,11 +18,7 @@
     </script>
     <button class="btn btn-primary" type="submit" name="update">Mettre à jour</button>
 </form>
-<<<<<<< HEAD
 <a class="btn btn-success" href=".\index.php?action=admin"> Retour au menu admin</a>
-=======
-<a class="btn btn-success" href="..\index.php?action=admin"> Retour au menu admin</a>
->>>>>>> d0735e22d50eaeeb5eabf92dd4771d8c717a85f5
 
 <table class="table">
     <tbody>

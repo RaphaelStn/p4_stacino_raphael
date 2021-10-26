@@ -22,7 +22,6 @@ html ,body ,h1 ,h2 ,h3 ,h4 ,h5 ,h6 ,p , a {
 }
 .main{
   padding: 20px;
-
 }
 .homepage {
   display: flex;
@@ -35,6 +34,11 @@ html ,body ,h1 ,h2 ,h3 ,h4 ,h5 ,h6 ,p , a {
   border-width: medium;
 }
 #login {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+#e404 {
   display: flex;
   justify-content: center;
   text-align: center;

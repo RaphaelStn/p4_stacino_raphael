@@ -22,10 +22,10 @@ class Controller {
     }
     protected  function NotFound() { // 404 not found.
         header ("HTTP/1.0 404 Not Found");
-        die('page introuvable');
+        header('Location: index.php?action=404');
     }
     protected function forbidden() {
         header ("HTTP/1.0 403 Forbidden");
-        die('acces interdit');
+        header('Location: index.php?action=404');
     }
 }

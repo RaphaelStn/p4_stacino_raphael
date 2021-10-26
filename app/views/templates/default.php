@@ -5,6 +5,7 @@
     <meta name="description" content="Blog de Jean Forteroche, auteur et écrivain.">
     <title> <?php echo Core\Controller\Controller::getTitle(); ?> </title>
     <link href="..\public\css\style.css" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://use.typekit.net/nac1xck.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.tiny.cloud/1/pa1f95o2vkvnul9irycx24w2i8h35vyjunuuukwvcl9gt7af/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -20,22 +21,22 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="../public/index.php?action=home"><i class="fas fa-home"></i> Accueil</a>
+        <a class="nav-link" href="../index.php?action=home"><i class="fas fa-home"></i> Accueil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../public/index.php?action=contents"><i class="fas fa-list"></i> Chapitres</a>
+        <a class="nav-link" href="../index.php?action=contents"><i class="fas fa-list"></i> Chapitres</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../public/index.php?action=about"><i class="fas fa-book-open"></i> A propos</a>
+        <a class="nav-link" href="../index.php?action=about"><i class="fas fa-book-open"></i> A propos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link nav-admin";" href="
         <?php
         $auth = new Core\Auth\DBAuth(App::getInstance()->getDb());
         if(!$auth->logged()) {
-         echo '../public/index.php?action=login';
+         echo '../index.php?action=login';
         } else {
-        echo '../public/index.php?action=admin';
+        echo '../index.php?action=admin';
         }?>"><i class="far fa-user"></i> Interface d'administration</a>
       </li>
     </ul>

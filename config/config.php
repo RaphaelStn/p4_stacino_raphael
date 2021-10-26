@@ -1,8 +1,8 @@
 <?php
 
 return array (
-    "db_user" => "root",
-    "db_pass" => "",
-    "db_name" => "blog",
-    "db_host" => "localhost"
+    'database' => 'dbs4623109',
+    'username' => 'dbu978327',
+    'password' => 'dbu78500',
+    'hostname' => 'db5005499254.hosting-data.io'
 );

@@ -26,13 +26,16 @@ Class FrontendController extends AppController {
     public function chapitre() {
         $success_report = false;
         $billet = $this-> billet ->find($_GET['id']);
-        $this->setTitle($billet->titre);
+        if(!empty($billet->titre)) {
+            $this->setTitle($billet->titre);
+        }
         if($billet === false) {
                 $this->notFound();
             }
          // POST du commentaire
-        if(!empty($_POST) AND isset($_POST['post_comm'])) { 
+        if(!empty($_POST['pseudo']) AND !empty($_POST['commentaire']) AND isset($_POST['post_comm'])) { 
             $result = $this->comm->create(['pseudo' => htmlspecialchars($_POST['pseudo']), 'contenu' => htmlspecialchars($_POST['commentaire']), 'id_billet' => htmlspecialchars($_GET['id'])]);
+            header('Location: index.php?action=chapitre&id=' . $billet->id .'');
         }
         $comms = $this -> comm-> all();
         // SIGNALEMENT du commentaire
@@ -63,5 +66,9 @@ Class FrontendController extends AppController {
             }
         }
         $this->render('frontend/login', compact('errors'));
+    }
+    public function e404(){
+        $this->setTitle('404');
+        $this->render('frontend/e404');
     }
 }

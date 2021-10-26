@@ -1,6 +1,6 @@
 <?php 
 namespace App\Controller\Backend;
-Use \Core\Auth\DbAuth;
+Use \Core\Auth\DBAuth;
 
 class AppController extends \App\Controller\Frontend\AppController {
     

@@ -9,9 +9,9 @@ class App {
 
     public static function load(){ // load les Autoloader et le sessionstart().
         session_start();
-        require ROOT . '/app/Autoloader.php';
+        require ROOT . '/app/AutoLoader.php';
         App\Autoloader::register();
-        require ROOT . '/Core/Autoloader.php';
+        require ROOT . '/core/AutoLoader.php';
         Core\Autoloader::register();
     }
     public static function getInstance() { // On initialise via une unique instance static et un 'singleton'.
@@ -25,9 +25,9 @@ class App {
         return new $class_name($this -> getDb()); // On retourne par exemple \App\Table\BilletTable(db_instance) où db_instance est MysqlDatabase('blog','localhost'etc).
     }
     public function getDb() { // On init la db via le fichier config
-        $this -> config = Config::getInstance(ROOT . '\config\config.php');
+        $this -> config = Config::getInstance(ROOT . '/config/config.php');
         if($this -> db_instance === null){
-           return $this -> db_instance = new MysqlDatabase($this -> config -> get('db_name'), $this -> config -> get('db_user'), $this -> config -> get('db_pass'), $this -> config -> get('db_host'));
+           return $this -> db_instance = new MysqlDatabase($this -> config -> get('database'), $this -> config -> get('username'), $this -> config -> get('password'), $this -> config -> get('hostname'));
 
         } else {
             return $this -> db_instance;

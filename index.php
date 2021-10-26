@@ -2,7 +2,7 @@
 use App\Controller\Frontend\FrontendController;
 use App\Controller\Backend\BackendController;
 
-define('ROOT', dirname(__DIR__)); // On définit une variable ROOT pour naviguer dans les dossiers plus facilement.
+define('ROOT', __DIR__); // On définit une variable ROOT pour naviguer dans les dossiers plus facilement.
 require  ROOT . '/app/App.php';
 
 App::load(); // Load() Initialise la session et les AutoLoaders des namespaces CORE et APP.
@@ -50,5 +50,8 @@ switch ($action) {
     case 'delete': 
         $controller = new BackendController();
         $controller->delete();
-        break;   
+        break; 
+    case '404':
+        $controller = new FrontendController();
+        $controller->e404();
 }

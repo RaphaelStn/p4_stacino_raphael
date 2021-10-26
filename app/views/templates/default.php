@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <meta name="description" content="Blog de Jean Forteroche, auteur et écrivain.">
     <title> <?php echo Core\Controller\Controller::getTitle(); ?> </title>
+<<<<<<< HEAD
     <link href=".\public\css\style.css" rel="stylesheet">
+=======
+    <link href="..\public\css\style.css" rel="stylesheet">
+>>>>>>> d0735e22d50eaeeb5eabf92dd4771d8c717a85f5
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://use.typekit.net/nac1xck.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -21,6 +25,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
+<<<<<<< HEAD
         <a class="nav-link" href="./index.php?action=home"><i class="fas fa-home"></i> Accueil</a>
       </li>
       <li class="nav-item">
@@ -28,15 +33,30 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="./index.php?action=about"><i class="fas fa-book-open"></i> A propos</a>
+=======
+        <a class="nav-link" href="../index.php?action=home"><i class="fas fa-home"></i> Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../index.php?action=contents"><i class="fas fa-list"></i> Chapitres</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../index.php?action=about"><i class="fas fa-book-open"></i> A propos</a>
+>>>>>>> d0735e22d50eaeeb5eabf92dd4771d8c717a85f5
       </li>
       <li class="nav-item">
         <a class="nav-link nav-admin";" href="
         <?php
         $auth = new Core\Auth\DBAuth(App::getInstance()->getDb());
         if(!$auth->logged()) {
+<<<<<<< HEAD
          echo './index.php?action=login';
         } else {
         echo './index.php?action=admin';
+=======
+         echo '../index.php?action=login';
+        } else {
+        echo '../index.php?action=admin';
+>>>>>>> d0735e22d50eaeeb5eabf92dd4771d8c717a85f5
         }?>"><i class="far fa-user"></i> Interface d'administration</a>
       </li>
     </ul>

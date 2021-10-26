@@ -15,7 +15,11 @@
             <td><?php echo $billet->id;?></td>
             <td><?php echo $billet->titre;?></td>
             <td>
+<<<<<<< HEAD
                 <a class="btn btn-primary" href=".\index.php?action=edit&id=<?php echo $billet->id;?>"> Editer </a>
+=======
+                <a class="btn btn-primary" href="..\index.php?action=edit&id=<?php echo $billet->id;?>"> Editer </a>
+>>>>>>> d0735e22d50eaeeb5eabf92dd4771d8c717a85f5
                 <form action="?action=delete" method="post" style="display: inline;">
                     <input type="hidden" name="id" value="<?php echo $billet->id;?>">
                     <button class="btn btn-danger" type="submit" name="delete" onclick="return confirm('Voulez-vous vraiment supprimer le chapitre?');">Supprimer</button>
@@ -27,7 +31,11 @@
 </table>
 
 <form method="post" action="">
+<<<<<<< HEAD
     <a class="btn btn-success" href="./index.php?action=add">Ajouter un chapitre</a>
+=======
+    <a class="btn btn-success" href="../index.php?action=add">Ajouter un chapitre</a>
+>>>>>>> d0735e22d50eaeeb5eabf92dd4771d8c717a85f5
     <button class="btn btn-secondary nav-admin" type="submit" name="disconnect">Se déconnecter</button>
 </form>
 <p> Ces commentaires ont été signalé par les utilisateurs, validez pour confirmer le commentaire, sinon supprimez-le.</p>

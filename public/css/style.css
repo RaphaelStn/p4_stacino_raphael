@@ -1,0 +1,60 @@
+/*** COMMON ***/
+html ,body ,h1 ,h2 ,h3 ,h4 ,h5 ,h6 ,p , a {
+  font-family: ff-tisa-sans-web-pro, sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.navbar-brand{
+  margin-left:1rem;
+}
+.nav-admin{
+  position: absolute;
+  right:1em;
+}
+#menu ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
+}
+.main{
+  padding: 20px;
+}
+.homepage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.extrait-div {
+  border-left: solid 5px;
+  padding: 5px;
+  border-width: medium;
+}
+#login {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+#e404 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.contents{
+  font-size: 1.3em;
+  color:black;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+hr {
+  border: 0;
+  height: 2px;
+}
+@media (max-width: 992px) { 
+  .nav-admin{
+    position: inherit;
+  }
+}

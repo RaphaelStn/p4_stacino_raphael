@@ -2,7 +2,7 @@
 <p> Vous pouvez ici éditer votre chapitre </p>
 <form method="post">
     <p>Titre : </p>
-    <input type="text" name="titre" value="<?php echo $billet->titre;?>"/>
+    <input type="text" name="titre" maxlength="20" value="<?php echo $billet->titre;?>"/>
     <p> </br> Date de publication : </p>
     <input type="date" name="date" value="<?php echo $billet->date_publi;?>"/>
     <textarea name='contenu'>

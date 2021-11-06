@@ -9,8 +9,8 @@
 <!-- Formulaire de création de commentaires -->
 <p> Vous pouvez laisser un commentaire en remplissant le formulaire ci-dessous.</p>
 <form method='post'>
-    <p><input type="text" name="pseudo", placeholder="Votre Pseudo"/></p>
-    <textarea type="textarea" name="commentaire" cols="40" rows="4"></textarea>
+    <p><input type="text" name="pseudo" maxlength="20" placeholder="Votre Pseudo"/></p>
+    <textarea type="textarea" name="commentaire" cols="40" maxlength="255" rows="4"></textarea>
     <p><button class="btn btn-primary" type="submit" name="post_comm">Poster</button></p>
 </form>
 <!-- On affiche les commentaires -->

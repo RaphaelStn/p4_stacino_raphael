@@ -6,6 +6,7 @@
         <tr>
             <td>ID</td>
             <td>Titre</td>
+            <td>Date de publication</td>
             <td>Action</td>
         </tr>
     </thead>
@@ -14,6 +15,13 @@
         <tr>
             <td><?php echo $billet->id;?></td>
             <td><?php echo $billet->titre;?></td>
+            <td>
+                <?php
+                    if($billet->date_publi === null) {
+                        echo 'Date de publication non défini';
+                    } else 
+                    echo date("d-m-Y", strtotime($billet->date_publi));
+            ?></td>
             <td>
                 <a class="btn btn-primary" href=".\index.php?action=edit&id=<?php echo $billet->id;?>"> Editer </a>
                 <form action="?action=delete" method="post" style="display: inline;">

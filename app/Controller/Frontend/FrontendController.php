@@ -18,7 +18,7 @@ Class FrontendController extends AppController {
     } 
 
     public function contents() {
-        $billets = $this->billet->all();
+        $billets = $this->billet->allPublished();
         $this->setTitle("Chapitres");
         $this-> render('frontend/contents', compact('billets'));
     }

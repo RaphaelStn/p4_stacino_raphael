@@ -5,7 +5,7 @@ use \App;
 
 class BilletTable extends Table { // Effectue la query défini dans la classe parente Table
     public function getThreeLast() {
-        return $this -> query('SELECT * FROM (SELECT * FROM billets ORDER BY titre DESC LIMIT 3) lastNrows_subquery ORDER BY id');
+        return $this -> query('SELECT * FROM (SELECT * FROM billets WHERE date_publi <= current_date() ORDER BY titre DESC LIMIT 3) lastNrows_subquery ORDER BY id');
     }
 
     public function find($id) {
@@ -13,7 +13,11 @@ class BilletTable extends Table { // Effectue la query défini dans la classe pa
     }
 
     public function all() {
-        return $this -> query("SELECT * FROM billets ORDER BY id ");
+        return $this -> query("SELECT * FROM billets ORDER BY id");
+    }
+
+    public function allPublished() {
+        return $this -> query("SELECT * FROM billets WHERE date_publi <= current_date() ORDER BY id");
     }
 
     public function update($id, $fields) {

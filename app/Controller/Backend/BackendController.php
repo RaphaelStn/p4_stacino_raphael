@@ -39,10 +39,14 @@ class BackendController extends AppController {
     public function edit() {
         $success_update=false;
         $success_delete=false;
+        $date_publi = null;
         $this->setTitle('Edition');
         //Logique du bouton edition
         if(!empty($_POST) AND isset($_POST['update'])) {
-            $result = $this->billet->update($_GET['id'], [ 'titre' => htmlspecialchars($_POST['titre']), 'contenu' => $_POST['contenu']]);
+            if(!empty($_POST['date'])) {
+                $date_publi = $_POST['date'];
+            }
+            $result = $this->billet->update($_GET['id'], ['titre' => htmlspecialchars($_POST['titre']), 'contenu' => $_POST['contenu'], 'date_publi' => $date_publi]);
             if($result) {
                 $success_update=true;
             }

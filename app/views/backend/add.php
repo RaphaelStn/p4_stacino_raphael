@@ -1,7 +1,9 @@
 <section id="id" class="main">
 <p> Vous pouvez ici ajouter un nouveau chapitre</p>
-<form method="post">
+<form method="post"> 
+    <p>Titre : </p>
     <input type="text" name="titre"/>
+    <p> </br> Date de publication : </p>
     <input type="date" name="date"/>
     <textarea name='contenu'>
     </textarea>

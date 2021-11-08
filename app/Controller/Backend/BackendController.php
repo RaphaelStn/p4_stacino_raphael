@@ -72,9 +72,13 @@ class BackendController extends AppController {
     }
     public function add() {
         $success_add=false;
+        $date_publi = null;
         $this->setTitle('Ajout');
         if(!empty($_POST AND isset($_POST['create']))) {
-            $result = $this->billet->create(['titre' => htmlspecialchars($_POST['titre']), 'contenu' => $_POST['contenu']]);
+            if(!empty($_POST['date'])) {
+                $date_publi = $_POST['date'];
+            }
+            $result = $this->billet->create(['titre' => htmlspecialchars($_POST['titre']), 'contenu' => $_POST['contenu'], 'date_publi' => $date_publi]);
             if($result) {
                 $success_add=true;
             }

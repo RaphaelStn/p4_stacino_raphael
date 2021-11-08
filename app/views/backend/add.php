@@ -2,6 +2,7 @@
 <p> Vous pouvez ici ajouter un nouveau chapitre</p>
 <form method="post">
     <input type="text" name="titre"/>
+    <input type="date" name="date"/>
     <textarea name='contenu'>
     </textarea>
     <script>

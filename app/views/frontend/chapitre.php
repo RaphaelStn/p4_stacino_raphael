@@ -2,7 +2,7 @@
 
 <!-- On recupère un chapitre -->
 <h3> <?php echo $billet -> titre; ?> </h3>
-<p> Publié le : <?php echo date("d-m-Y", strtotime($billet->date_publi)); ?> </p>
+<p> Publié le : <?php echo date("d/m/Y", strtotime($billet->date_publi)); ?> </p>
 <p> <?php echo $billet -> contenu; ?> </p>
 <hr>
 

@@ -8,8 +8,8 @@ class BilletEntity extends Entity{
         return 'index.php?action=chapitre&id=' . $this->id;
     }
     public function getExtrait() { // On renvoie un extrait de 200 caractère.
-        $html = '<p>' . substr($this->contenu, 0, 200) . '...</p>';
-        $html .= '<p><a href="' . $this->url . '">Lire la suite</a></p>';
+        $html = substr($this->contenu, 0, 300) . '...';
+        $html .= '<a href="' . $this->url . '">Lire la suite</a>';
         return $html;
     }
 }

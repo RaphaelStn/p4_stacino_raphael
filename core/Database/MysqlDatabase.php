@@ -66,8 +66,4 @@ class MysqlDatabase { // Recupération des datas selon les infos constructeurs (
         }
         return $datas;
     }
-    
-    public function lastInsertId(){
-        return $this -> getPDO() -> lastInsertId();
-    }
 }

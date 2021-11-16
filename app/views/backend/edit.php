@@ -20,10 +20,13 @@
         });
     </script>
     <button class="btn btn-primary" type="submit" name="update">Mettre à jour</button>
+    <a class="btn btn-success" href=".\index.php?action=admin"> Retour au menu admin</a>
 </form>
-<a class="btn btn-success" href=".\index.php?action=admin"> Retour au menu admin</a>
-
-<table class="table">
+</br>
+<?php
+if(!is_null($comms[0]->pseudo)){
+?>
+<table class="table table-hover table-responsive-xl">
     <tbody>
         <?php foreach($comms as $comm): ?>
         <tr> 
@@ -39,4 +42,6 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+<?php
+}; ?>
 </section>

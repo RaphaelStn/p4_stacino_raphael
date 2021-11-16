@@ -1,10 +1,14 @@
 <section class="main" id="adminpage">
 <h1> Interface d'administration </h1>
-<p> Ici vous pouvez éditer chaque chapitres, ou ajouter un chapitre. Vous pouvez également gérer les commentaires d'un chapitre en éditant le chapitre. </p>
-<table class="table">
+<p> Ici vous pouvez éditer chaque chapitres, ou ajouter un chapitre. Vous pouvez également gérer les commentaires d'un chapitre en éditant le chapitre. 
+    Un chapitre sera publié au moment de la date défini.</p>
+<form method="post" action="">
+    <a class="btn btn-success" href="./index.php?action=add">Ajouter un chapitre</a>
+    <button class="btn btn-secondary nav-admin" type="submit" name="disconnect">Se déconnecter</button>
+</form>
+<table class="table table-hover table-responsive-xl">
     <thead>
         <tr>
-            <td>ID</td>
             <td>Titre</td>
             <td>Date de publication</td>
             <td>Action</td>
@@ -13,7 +17,6 @@
     <tbody>
         <?php foreach ($billets as $billet): ?>
         <tr>
-            <td><?php echo $billet->id;?></td>
             <td><?php echo $billet->titre;?></td>
             <td>
                 <?php
@@ -34,10 +37,7 @@
     </tody>
 </table>
 
-<form method="post" action="">
-    <a class="btn btn-success" href="./index.php?action=add">Ajouter un chapitre</a>
-    <button class="btn btn-secondary nav-admin" type="submit" name="disconnect">Se déconnecter</button>
-</form>
+
 <p> Ces commentaires ont été signalé par les utilisateurs, validez pour confirmer le commentaire, sinon supprimez-le.</p>
 <?php
 if($success_validate) {
@@ -51,10 +51,9 @@ if($success_delete) {
     <?php
 }
 ?>
-<table class="table">
+<table class="table table-hover table-responsive-xl">
     <thead>
         <tr>
-            <td>Chapitre</td>
             <td>Pseudo</td>
             <td>Contenu</td>
             <td>Action</td>
@@ -63,7 +62,6 @@ if($success_delete) {
     <tbody>
         <?php foreach ($reports as $report): ?>
         <tr>
-            <td><?php echo $report->comm_id;?></td>
             <td><?php echo $report->pseudo;?></td>
             <td><?php echo $report->contenu;?></td>
             <td>
@@ -71,7 +69,9 @@ if($success_delete) {
                     <input type="hidden" name="comm_id" value="<?php echo $report->comm_id;?>">
                     <button class="btn btn-success" type="submit" name="valider">Valider</button>
                 </form>
-                <form action="" method="post" style="display: inline;">
+            </td>
+            <td>
+            <form action="" method="post" style="display: inline;">
                     <input type="hidden" name="comm_id" value="<?php echo $report->comm_id;?>">
                     <button class="btn btn-danger" type="submit" name="refuser">Supprimer</button>
                 </form>

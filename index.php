@@ -2,13 +2,13 @@
 use App\Controller\Frontend\FrontendController;
 use App\Controller\Backend\BackendController;
 
-define('ROOT', __DIR__); // On définit une variable ROOT pour naviguer dans les dossiers plus facilement.
+define('ROOT', __DIR__); // On définit ROOT pour naviguer dans les dossiers plus facilement.
 require  ROOT . '/app/App.php';
 
 App::load(); // Load() Initialise la session et les AutoLoaders des namespaces CORE et APP.
 
 
-if(isset($_GET['action'])) {
+if(isset($_GET['action'])) { 
     $action = $_GET['action'];
 } else {
 $action = 'home';
@@ -54,4 +54,5 @@ switch ($action) {
     case '404':
         $controller = new FrontendController();
         $controller->e404();
+        break;
 }

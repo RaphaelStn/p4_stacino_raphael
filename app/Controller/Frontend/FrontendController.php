@@ -13,7 +13,7 @@ Class FrontendController extends AppController {
 
     public function home() {
         $billets = $this->billet->getThreeLast();
-        $this->setTitle("Accueil");
+        $this->setTitle("Accueil"); 
         $this-> render('frontend/home', compact('billets'));
     } 
 

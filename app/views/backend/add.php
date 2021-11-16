@@ -19,8 +19,8 @@
         });
     </script>
     <button class="btn btn-primary" type="submit" name="create">Ajouter le chapitre</button>
+    <a class="btn btn-success" href=".\index.php?action=admin"> Retour au menu admin</a>
 </form>
-<a class="btn btn-success" href=".\index.php?action=admin"> Retour au menu admin</a>
 <?php
 if($success_add) {
     ?>

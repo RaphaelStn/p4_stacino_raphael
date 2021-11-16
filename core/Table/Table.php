@@ -16,7 +16,7 @@ class Table {
     }
 
     public function query($statement, $attributes = null, $one = false) { // On vérifie la présence d'$attributes, si attribut, c'est une requête préparée, sinon une simple query.
-        if($attributes) { // db est l'object MysqlDatabase, il va donc effectuer les requêtes prepare et query défini dans la class MysqlDatabase.
+        if($attributes) { // db est l'object new MysqlDatabase, il va donc effectuer les requêtes prepare et query défini dans la class MysqlDatabase.
             return $this -> db -> prepare($statement, $attributes, str_replace('Table','Entity', get_class($this)), $one);
         }
         else {

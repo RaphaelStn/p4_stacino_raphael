@@ -7,6 +7,16 @@ html ,body ,h1 ,h2 ,h3 ,h4 ,h5 ,h6 ,p , a {
   margin-left: 0px;
   margin-right: 0px;
 }
+.tox-notification {
+  display: none !important;
+}
+.main {
+  padding:5px;
+}
+a.nav-link {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
 .navbar-brand{
   margin-left:1rem;
 }
@@ -20,9 +30,7 @@ html ,body ,h1 ,h2 ,h3 ,h4 ,h5 ,h6 ,p , a {
   justify-content: space-around;
   list-style-type: none;
 }
-.main{
-  padding: 20px;
-}
+
 .homepage {
   display: flex;
   flex-direction: row;
@@ -44,7 +52,6 @@ html ,body ,h1 ,h2 ,h3 ,h4 ,h5 ,h6 ,p , a {
   text-align: center;
 }
 .contents{
-  font-size: 1.3em;
   color:black;
   text-decoration: none;
   text-transform: uppercase;
@@ -53,8 +60,33 @@ hr {
   border: 0;
   height: 2px;
 }
+input.form-control {
+  margin-bottom: 5px;
+}
 @media (max-width: 992px) { 
-  .nav-admin{
+  .nav-admin {
     position: inherit;
+  }
+  .table-responsive-xl thead {
+    display: none;
+  }
+  .table-responsive-xl tr{
+    display: block;
+    margin-bottom: 40px;
+  }
+  .table-responsive-xl td {
+    display: block;
+    text-align: left;
+  }
+  .table-responsive-xl td:before {
+    content: attr(data-label);
+    float: right;
+    font-weight: bold;
+  }
+  .homepage {
+    display: block;
+  }
+  .extrait-div {
+    border: none;
   }
 }

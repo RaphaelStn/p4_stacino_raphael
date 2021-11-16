@@ -14,23 +14,22 @@ class BackendController extends AppController {
         $success_validate=false;
         $this->setTitle('Admin');
         $billets =$this->billet->all();
-        //Logique du bouton disconnect
+        //Logique du bouton de déconnexion
         if(isset($_POST['disconnect'])){
             unset($_SESSION['auth']);
             header('location:index.php');
         }
-        //Recupération des commentaires signalés
         //Logique de la suppression d'un commentaire.
         if(!empty($_POST) AND isset($_POST['refuser'])) { // Suppression du commentaire
             $result = $this->comm->delete($_POST['comm_id']);
             if($result) {
-                $success_delete=true;
+                $success_delete=true;  // On renvoie une confirmation
             }
         }
         if(!empty($_POST) AND isset($_POST['valider'])) { // validation du commentaire
             $result = $this->comm->removeReport($_POST['comm_id']);
             if($result) {
-                $success_validate=true;
+                $success_validate=true;  // On renvoie une confirmation
             }
         }
         $reports = $this->comm->getReported();
@@ -48,7 +47,7 @@ class BackendController extends AppController {
             }
             $result = $this->billet->update($_GET['id'], ['titre' => htmlspecialchars($_POST['titre']), 'contenu' => $_POST['contenu'], 'date_publi' => $date_publi]);
             if($result) {
-                $success_update=true;
+                $success_update=true;  // On renvoie une confirmation
             }
         }
         $billet = $this->billet->find($_GET['id']);
@@ -56,13 +55,14 @@ class BackendController extends AppController {
         if(!empty($_POST) AND isset($_POST['deleteComm'])) {
             $result = $this->comm->delete($_POST['comm_id']);
             if($result) {
-                $success_delete=true;
+                $success_delete=true;  // On renvoie une confirmation
             }
         }
         $comms = $this -> comm -> all();
         $this->render('backend/edit', compact('billet','comms', 'success_update', 'success_delete'));
     }
     public function delete() {
+        //Logique de la suppression d'un chapitre selon ID
         if(!empty($_POST) AND isset($_POST['delete'])) {
             $result = $this->billet->delete($_POST['id']);
             if($result) {
@@ -72,15 +72,15 @@ class BackendController extends AppController {
     }
     public function add() {
         $success_add=false;
-        $date_publi = null;
+        $date_publi = null; // Par défaut, la date est null
         $this->setTitle('Ajout');
         if(!empty($_POST AND isset($_POST['create']))) {
-            if(!empty($_POST['date'])) {
+            if(!empty($_POST['date'])) { // Si la date est renseignée, on la rentre en variable, sinon elle reste null
                 $date_publi = $_POST['date'];
             }
             $result = $this->billet->create(['titre' => htmlspecialchars($_POST['titre']), 'contenu' => $_POST['contenu'], 'date_publi' => $date_publi]);
             if($result) {
-                $success_add=true;
+                $success_add=true; // On renvoie une confirmation
             }
         }
         $this->render('backend/add', compact('success_add'));

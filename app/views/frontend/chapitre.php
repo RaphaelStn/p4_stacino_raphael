@@ -9,19 +9,24 @@
 <!-- Formulaire de création de commentaires -->
 <p> Vous pouvez laisser un commentaire en remplissant le formulaire ci-dessous.</p>
 <form method='post'>
-    <p><input type="text" name="pseudo" maxlength="20" placeholder="Votre Pseudo"/></p>
-    <textarea type="textarea" name="commentaire" cols="40" maxlength="255" rows="4"></textarea>
-    <p><button class="btn btn-primary" type="submit" name="post_comm">Poster</button></p>
+    <div class="col-sm-6">    
+        <input class ="form-control form-control" type="text" name="pseudo" maxlength="20" placeholder="Votre Pseudo"/>
+        <textarea class ="form-control form-control" type="textarea" name="commentaire" cols="40" maxlength="255" rows="4" placeholder="votre commentaire"></textarea>
+        <div>
+            <button class="btn btn-primary" type="submit" name="post_comm">Poster</button>
+            <?php
+                if($success_report) {
+            ?>
+                <div class="btn nav-admin btn-success">Le commentaire à signalé</div>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
 </form>
 <!-- On affiche les commentaires -->
-<?php
-if($success_report) {
-    ?>
-    <div class="btn btn-success">Le commentaire à signalé</div>
-    <?php
-}
-?>
-<table class="table">
+</br>
+<table class="table table-hover">
     <tbody>
         <?php foreach($comms as $comm): ?>
         <tr> 
@@ -30,7 +35,7 @@ if($success_report) {
             <td>
                 <form method="post" style="display: inline;">
                     <input type="hidden" name="comm_id" value="<?php echo $comm -> comm_id;?>">
-                    <button class="btn btn-warning"  type="submit" name="report_comm"><i class="fas fa-exclamation"></i></button>
+                    <button class="btn btn-warning" data-toggle="tooltip" data-placement="left" title="Signaler le commentaire" data-offset="0, 15" type="submit" name="report_comm"><i class="fas fa-exclamation"></i></button>
                 </form>
             </td>
         </tr>
